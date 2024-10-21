@@ -75,6 +75,7 @@ public class OsmConverterConfigGroup extends ReflectiveConfigGroup {
 	 */
 	public static OsmConverterConfigGroup createDefaultConfig() {
 		Set<String> carSingleton = Collections.singleton("car");
+		Set<String> bikeSingleton = Collections.singleton("bike");
 		Set<String> carBikeSet = new HashSet<>();
 		carBikeSet.add("car");
 		carBikeSet.add("bike");
@@ -94,14 +95,15 @@ public class OsmConverterConfigGroup extends ReflectiveConfigGroup {
 		defaultConfig.addParameterSet(new OsmWayParams(Osm.Key.HIGHWAY, Osm.Value.UNCLASSIFIED, 1, 25.0 / 3.6, 1.0, 600, false, carBikeSet));
 		defaultConfig.addParameterSet(new OsmWayParams(Osm.Key.HIGHWAY, Osm.Value.RESIDENTIAL, 1, 15.0 / 3.6, 1.0, 600, false, carBikeSet));
 		defaultConfig.addParameterSet(new OsmWayParams(Osm.Key.HIGHWAY, Osm.Value.LIVING_STREET, 1, 10.0 / 3.6, 1.0, 300, false, carBikeSet));
-		defaultConfig.addParameterSet(new OsmWayParams(Osm.Key.HIGHWAY, "cycleway", 1, 25 / 3.6, 1.0, 300, false, Collections.singleton("bike")));
+		defaultConfig.addParameterSet(new OsmWayParams(Osm.Key.HIGHWAY, "cycleway", 1, 25 / 3.6, 1.0, 300, false, bikeSingleton));
+		defaultConfig.addParameterSet(new OsmWayParams(Osm.Key.HIGHWAY, "path", 1, 25 / 3.6, 1.0, 300, false, bikeSingleton));
 
 		defaultConfig.addParameterSet(new OsmWayParams(Osm.Key.RAILWAY, Osm.Value.RAIL, 1, 160.0 / 3.6, 1.0, 9999, false, railSingleton));
 		defaultConfig.addParameterSet(new OsmWayParams(Osm.Key.RAILWAY, Osm.Value.TRAM, 1, 40.0 / 3.6, 1.0, 9999, true, railSingleton));
 		defaultConfig.addParameterSet(new OsmWayParams(Osm.Key.RAILWAY, Osm.Value.LIGHT_RAIL, 1, 80.0 / 3.6, 1.0, 9999, false, railSingleton));
 
 		defaultConfig.addParameterSet(new RoutableSubnetworkParams("car", carSingleton));
-		defaultConfig.addParameterSet(new RoutableSubnetworkParams("bike", Collections.singleton("bike")));
+		defaultConfig.addParameterSet(new RoutableSubnetworkParams("bike", bikeSingleton));
 		defaultConfig.addParameterSet(new RoutableSubnetworkParams("bus", new HashSet<>(Arrays.asList("car", "bus"))));
 		
 		return defaultConfig;
