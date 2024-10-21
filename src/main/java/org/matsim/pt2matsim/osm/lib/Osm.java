@@ -155,6 +155,7 @@ public final class Osm {
 		public static final String MOTORCYCLE = "motorcycle";
 		public static final String FOOTWAY = "footway";
 		public static final String CROSSING = "crossing";
+		public static final String BICYCLE = "bicycle";
 
 		public static final List<String> DEFAULT_KEYS = Arrays.asList(
 				NAME, ROUTE, ROUTE_MASTER, PUBLIC_TRANSPORT, RAILWAY, HIGHWAY, SERVICE, LANES, JUNCTION, ONEWAY, ACCESS, PSV,

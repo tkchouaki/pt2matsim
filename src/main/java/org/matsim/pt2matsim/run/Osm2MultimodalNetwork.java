@@ -79,6 +79,7 @@ public final class Osm2MultimodalNetwork {
 		AllowedTagsFilter filter = new AllowedTagsFilter();
 		filter.add(Osm.ElementType.WAY, Osm.Key.HIGHWAY, null);
 		filter.add(Osm.ElementType.WAY, Osm.Key.RAILWAY, null);
+		filter.add(Osm.ElementType.WAY, Osm.Key.BICYCLE, null);
 
 		OsmData osmData = new OsmDataImpl(filter);
 		new OsmFileReader(osmData).readFile(config.getOsmFile());
